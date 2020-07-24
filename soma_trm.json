@@ -1,0 +1,46 @@
+{
+  "program_name": "soma_numeros",
+  "blank_symbol": "0",
+  "initial_tape_size": 500,
+  "initial_state": "read_1st_operand",
+  "halt_state": "halt",
+  "alphabet": ["0", "1"], 
+  "states": {
+    "read_1st_operand": [
+      {
+        "write": 1,
+        "move": "r",
+        "next": "read_2nd_operand"
+      },
+      {
+        "write": 1,
+        "move": "r",
+        "next": "read_1st_operand"
+      }
+    ],
+    "read_2nd_operand": [
+      {
+        "write": 0,
+        "move": "l",
+        "next": "back_to_fix"
+      },
+      {
+        "write": 1,
+        "move": "r",
+        "next": "read_2nd_operand"
+      }
+    ],
+    "back_to_fix": [
+      {
+        "write": 0,
+        "move": "r",
+        "next": "halt"
+      },
+      {
+        "write": 0,
+        "move": "r",
+        "next": "halt"
+      }
+    ]
+  }
+}
